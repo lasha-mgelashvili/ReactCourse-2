@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css"; // assuming you have a separate CSS file for styling
+import Form from "./Form"; 
 
 const users = [
   {
@@ -600,6 +601,7 @@ const UserCard = ({ user }) => {
 const App = () => {
   return (
     <div className="App">
+      <Form/>
       <h1>User Directory</h1>
       <div className="user-list">
         {users.map((user, index) => (

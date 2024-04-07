@@ -9,10 +9,14 @@ const Form = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
     alert(`hello ${user.email} your password is ${user.password}`);
   };
-  const isButtonDIsabled = user.email && user.password ? false : true;
+  const isButtonDisabled =
+    user.email === "digitalAcademy@gmail.com" &&
+    user.password === "ilovereact123"
+      ? false
+      : true;
+
   return (
     <form className="form" onSubmit={submitHandler}>
       <label htmlFor="email">email</label>
@@ -40,7 +44,7 @@ const Form = () => {
         }}
         placeholder="enter password"
       />
-      <button disabled={isButtonDIsabled} className="button" type="submit">
+      <button disabled={isButtonDisabled} className="button" type="submit">
         submit
       </button>
     </form>
