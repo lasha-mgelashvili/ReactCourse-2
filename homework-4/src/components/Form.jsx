@@ -1,21 +1,11 @@
-import React, { useState } from "react";
-import "./App.css";
+import React from "react";
 
-const Form = () => {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-
+const Form = ({ user, setUser, isButtonDisabled, setIsButtonClicked, handleButtonClick}) => {
   const submitHandler = (e) => {
     e.preventDefault();
+    setIsButtonClicked(true);
     alert(`hello ${user.email} your password is ${user.password}`);
   };
-  const isButtonDisabled =
-    user.email === "digitalAcademy@gmail.com" &&
-    user.password === "ilovereact123"
-      ? false
-      : true;
 
   return (
     <form className="form" onSubmit={submitHandler}>
@@ -44,19 +34,11 @@ const Form = () => {
         }}
         placeholder="enter password"
       />
-      <button disabled={isButtonDisabled} className="button" type="submit">
+      <button disabled={isButtonDisabled} onClick={handleButtonClick} className="button" type="submit">
         submit
       </button>
     </form>
   );
 };
 
-function App() {
-  return (
-    <div className="App">
-      <Form />
-    </div>
-  );
-}
-
-export default App;
+export default Form;
