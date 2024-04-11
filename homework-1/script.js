@@ -107,6 +107,7 @@ function Card(data) {
   ]);
 }
 
+
 function App() {
   return React.createElement("main", { className: "container" }, [
     ...data.map((data) => React.createElement(Card, data)),
